@@ -1,0 +1,15 @@
+{
+  "create": {
+            "url": "/search/{pk}/prueba/",
+            "action": "post",
+            "fields":[
+              {
+                "name": "pk",
+                "required": true,
+                "location": "path",
+                "description": "City name or airport code."
+              }
+            ],
+            "description": "Return flight availability and prices."
+    }
+}

@@ -1,0 +1,105 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Esta es la api de viajes",
+    "version": "1.0.0",
+    "title": "GR17 Viajes"
+  },
+  "host": "petstore.swagger.io",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "travel",
+      "description": "Everything about Travel"
+    },
+    {
+      "name": "destination",
+      "description": "All you neew about Destination"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/travel": {
+      "get": {
+        "tags": [
+          "travel"
+        ],
+        "summary": "Get all travel from the current user",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "st",
+            "in": "query",
+            "description": "Filter travels by 'estado_viaje'",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Pet not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "travel"
+        ],
+        "summary": "Create a new travel",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Travel"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Travel": {
+      "type": "object",
+      "required": [
+        "titulo"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "example": "Mi viaje"
+        }
+      }
+    }
+  }
+}

@@ -65,3 +65,23 @@ definitions:
       titulo:
         type: string
         example: Mi viaje
+      destinos:
+        type: array
+        items:
+          $ref: "#/definitions/Destination"
+        example:
+          - name: 'Madrid'
+            date: 54345344
+          - name: 'Toledo'
+            date: 87548956
+  Destination:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        example: 'Madrid'
+      date:
+        type: integer
+        example: 1234124
